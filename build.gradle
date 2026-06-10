@@ -1,17 +1,63 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 group = 'org.example'
 version = '1.0-SNAPSHOT'
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_25
+    targetCompatibility = JavaVersion.VERSION_25
+}
+
 repositories {
     mavenCentral()
 }
 
+
+
+
+sourceSets {
+    main {
+        resources {
+            srcDirs 'src/main/resources'
+        }
+    }
+}
+
+def javafxVersion = '21'
+
 dependencies {
+    implementation "org.openjfx:javafx-controls:${javafxVersion}:mac-aarch64"
+    implementation "org.openjfx:javafx-fxml:${javafxVersion}:mac-aarch64"
+    implementation "org.openjfx:javafx-graphics:${javafxVersion}:mac-aarch64"
+    implementation "org.openjfx:javafx-base:${javafxVersion}:mac-aarch64"
+    implementation "org.openjfx:javafx-media:${javafxVersion}:mac-aarch64"
+    implementation 'org.hibernate.orm:hibernate-core:6.4.4.Final'
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.1.0'
+    implementation 'com.h2database:h2:2.2.224'
+    implementation 'org.slf4j:slf4j-api:2.0.10'
+    implementation 'org.slf4j:slf4j-simple:2.0.10'
+    testImplementation 'junit:junit:4.13.2'
     testImplementation platform('org.junit:junit-bom:5.9.1')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+tasks.withType(JavaCompile) {
+    options.release = 25
+}
+
+tasks.processResources {
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
+}
+
+tasks.named('run') {
+    standardInput = System.in
+    classpath = sourceSets.main.runtimeClasspath
+    jvmArgs = [
+            '--module-path', classpath.asPath,
+            '--add-modules', 'javafx.controls,javafx.fxml'
+    ]
 }
 
 test {
