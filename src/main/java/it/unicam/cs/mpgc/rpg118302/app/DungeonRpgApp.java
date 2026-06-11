@@ -1,33 +1,37 @@
 package it.unicam.cs.mpgc.rpg118302.app;
 
-import it.unicam.cs.mpgc.rpg118302.config.JpaUtil;
 import it.unicam.cs.mpgc.rpg118302.controllers.GameController;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
 /**
- * Punto principale dell'applicazione per Dungeon RPG.
+ * Applicazione principale del Dungeon RPG.
  */
 public class DungeonRpgApp extends Application {
-    private GameController gameController;
 
     @Override
-    public void start(Stage primaryStage) {
-        gameController = new GameController();
-        gameController.show(primaryStage);
+    public void start(Stage stage) {
+        try {
+            System.out.println("=== START APP ===");
+            stage.setTitle("Dungeon RPG");
+            stage.setWidth(800);
+            stage.setHeight(600);
+            stage.show();
+            System.out.println("Stage creato e mostrato");
 
-        primaryStage.setOnCloseRequest(e -> {
-            JpaUtil.closeEntityManagerFactory();
-            System.exit(0);
-        });
-    }
+            GameController gameController = new GameController();
+            System.out.println("GameController creato");
 
-    @Override
-    public void stop() {
-        JpaUtil.closeEntityManagerFactory();
+            gameController.show(stage);
+            System.out.println("GameController.show() eseguito");
+        } catch (Exception e) {
+            System.err.println("ERRORE in start():");
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
+        System.out.println("=== MAIN ===");
         launch(args);
     }
 }
