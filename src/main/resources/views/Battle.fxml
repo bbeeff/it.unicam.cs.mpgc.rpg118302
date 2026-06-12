@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #0a0e27;" spacing="0">
+
+    <!-- HEADER -->
+    <VBox style="-fx-alignment: center; -fx-background: linear-gradient(to bottom, #1a1a3e 0%, #2d1b4e 50%, #1a0f3e 100%); -fx-padding: 30 30 30 30;" spacing="15">
+
+        <Label text="═══════════════════════════════════════════════════════"
+               style="-fx-font-size: 11px; -fx-text-fill: #d4af37; -fx-font-family: 'Courier New';"/>
+
+        <Label text="⚔ BATTAGLIA ⚔"
+               style="-fx-font-size: 36px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-effect: dropshadow(gaussian, #000000, 8, 0, 0, 2);"/>
+
+        <Label text="═══════════════════════════════════════════════════════"
+               style="-fx-font-size: 11px; -fx-text-fill: #d4af37; -fx-font-family: 'Courier New';"/>
+    </VBox>
+
+    <!-- CENTER CON SCROLL -->
+    <ScrollPane fitToWidth="true" fitToHeight="false"
+                style="-fx-padding: 0; -fx-control-inner-background: #0a0e27;"
+                VBox.vgrow="ALWAYS">
+
+        <VBox style="-fx-background-color: #0a0e27; -fx-padding: 15;" spacing="12">
+
+            <!-- IMMAGINE NEMICO -->
+            <HBox style="-fx-alignment: center; -fx-border-color: #d4af37; -fx-border-width: 2; -fx-padding: 15; -fx-background-color: #1a1a3e; -fx-border-radius: 8;" prefHeight="250">
+                <ImageView fx:id="enemyImage" fitWidth="220" fitHeight="220" preserveRatio="true" smooth="true"/>
+            </HBox>
+
+            <!-- STATISTICHE -->
+            <HBox style="-fx-padding: 10; -fx-alignment: center;" spacing="15">
+
+                <VBox style="-fx-alignment: center; -fx-padding: 12; -fx-border-color: #4CAF50; -fx-border-width: 2; -fx-background-color: #e8f5e9; -fx-border-radius: 8;" spacing="5" prefWidth="150">
+                    <Label fx:id="charName" text="PLAYER"
+                           style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1B5E20; -fx-wrap-text: true;"/>
+                    <Label fx:id="charStats" text="❤ 0/0"
+                           style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #1565C0;"/>
+                </VBox>
+
+                <VBox style="-fx-alignment: center; -fx-padding: 12; -fx-border-color: #D32F2F; -fx-border-width: 2; -fx-background-color: #ffebee; -fx-border-radius: 8;" spacing="5" prefWidth="150">
+                    <Label fx:id="enemyName" text="NEMICO"
+                           style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #B71C1C; -fx-wrap-text: true;"/>
+                    <Label fx:id="enemyStats" text="❤ 0/0"
+                           style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #D32F2F;"/>
+                </VBox>
+            </HBox>
+
+            <!-- LOG BATTAGLIA -->
+            <VBox style="-fx-border-color: #d4af37; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #1a1a3e; -fx-border-radius: 8;" spacing="6" prefHeight="220" VBox.vgrow="ALWAYS">
+
+                <Label text="📜 LOG BATTAGLIA"
+                       style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #d4af37;"/>
+
+                <TextArea fx:id="battleLog" editable="false" wrapText="true" prefRowCount="8"
+                          style="-fx-font-size: 11px; -fx-font-family: 'System'; -fx-control-inner-background: #0a0e27; -fx-text-fill: #c0a080; -fx-padding: 8; -fx-border-color: #8b7355; -fx-border-width: 1;"
+                          VBox.vgrow="ALWAYS"/>
+            </VBox>
+
+            <!-- AZIONI -->
+            <VBox style="-fx-border-color: #d4af37; -fx-border-width: 2; -fx-padding: 10; -fx-background-color: #1a1a3e; -fx-border-radius: 8;" spacing="8">
+
+                <HBox fx:id="actionBox" style="-fx-alignment: center;" spacing="8"/>
+            </VBox>
+        </VBox>
+    </ScrollPane>
+</VBox>

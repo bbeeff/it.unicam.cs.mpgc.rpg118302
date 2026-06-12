@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      style="-fx-background-color: #0a0e27;" spacing="0">
+
+    <!-- HEADER -->
+    <VBox style="-fx-alignment: center; -fx-background: linear-gradient(to bottom, #1a1a3e 0%, #2d1b4e 50%, #1a0f3e 100%); -fx-padding: 40 30 40 30;" spacing="15">
+
+        <HBox style="-fx-alignment: center-right;">
+            <Label text=" PRIMA RELEASE v1.0"
+                   style="-fx-font-size: 11px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-padding: 5 15 5 15; -fx-border-color: #d4af37; -fx-border-width: 1; -fx-border-radius: 5;"/>
+        </HBox>
+
+        <Label text="═══════════════════════════════════════════════════════"
+               style="-fx-font-size: 12px; -fx-text-fill: #d4af37; -fx-font-family: 'Courier New';"/>
+
+        <Label text="⚔ DUNGEON LEGEND ⚔"
+               style="-fx-font-size: 44px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-effect: dropshadow(gaussian, #000000, 8, 0, 0, 2);"/>
+
+        <Label text="━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+               style="-fx-font-size: 12px; -fx-text-fill: #8b7355; -fx-font-family: 'Courier New';"/>
+
+        <Label text="«La battaglia ti attende...»"
+               style="-fx-font-size: 16px; -fx-font-style: italic; -fx-text-fill: #c0a080;"/>
+
+        <Label text="═══════════════════════════════════════════════════════"
+               style="-fx-font-size: 12px; -fx-text-fill: #d4af37; -fx-font-family: 'Courier New';"/>
+    </VBox>
+
+    <!-- CENTER CON SCROLL -->
+    <ScrollPane fitToWidth="true" fitToHeight="false"
+                style="-fx-padding: 0; -fx-control-inner-background: #0a0e27;"
+                VBox.vgrow="ALWAYS">
+
+        <HBox style="-fx-background-color: #0a0e27; -fx-padding: 50 50 50 50;" spacing="40">
+
+            <!-- PANNELLO SINISTRO - STATISTICHE -->
+            <VBox style="-fx-padding: 25; -fx-background-color: #1a1a3e; -fx-border-color: #d4af37; -fx-border-width: 2; -fx-border-radius: 10; -fx-effect: dropshadow(gaussian, #d4af37, 12, 0.4, 0, 5);" spacing="18" prefWidth="250">
+
+                <Label text="👤 IL TUO EROE"
+                       style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-letter-spacing: 2;"/>
+
+                <Label fx:id="charName" text="NOME"
+                       style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #c0a080;"/>
+
+                <Label fx:id="charGender" text="Genere: "
+                       style="-fx-font-size: 11px; -fx-text-fill: #a0a0a0;"/>
+
+                <Separator style="-fx-border-color: #8b7355;"/>
+
+                <Label text="STATISTICHE"
+                       style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-letter-spacing: 1;"/>
+
+                <Label fx:id="charStats" text="Stats"
+                       style="-fx-font-size: 11px; -fx-text-fill: #c0a080; -fx-line-spacing: 8; -fx-font-family: 'Courier New';"/>
+
+                <Separator style="-fx-border-color: #8b7355;"/>
+
+                <Label text="«Ogni cicatrice racconta&#10;una storia di sopravvivenza.»"
+                       style="-fx-font-size: 10px; -fx-text-fill: #a0a0a0; -fx-font-style: italic; -fx-line-spacing: 5; -fx-wrap-text: true; -fx-text-alignment: center;"/>
+            </VBox>
+
+            <!-- PANNELLO DESTRO - AZIONI -->
+            <VBox HBox.hgrow="ALWAYS" spacing="25">
+
+                <!-- Card Missione -->
+                <VBox style="-fx-padding: 20; -fx-background-color: #1a0f3e; -fx-border-color: #8b7355; -fx-border-width: 2; -fx-border-radius: 8; -fx-effect: dropshadow(gaussian, #000000, 8, 0, 0, 3);" spacing="12">
+
+                    <Label text="📜 MISSIONE"
+                           style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #d4af37;"/>
+
+                    <Label text="Le profondità del dungeon ti richiamano.&#10;Creature oscure abitano queste viscere.&#10;Sei pronto a sfidare il destino?"
+                           style="-fx-font-size: 14px; -fx-text-fill: #c0a080; -fx-wrap-text: true; -fx-line-spacing: 8;"/>
+                </VBox>
+
+                <!-- Bottoni Principali -->
+                <VBox style="-fx-alignment: center;" spacing="15">
+                    <Button fx:id="battleBtn" text="  ⚔ ENTRA IN BATTAGLIA ⚔  " onAction="#onBattleButtonClicked"
+                            style="-fx-padding: 16 40 16 40; -fx-font-size: 14px; -fx-font-weight: bold; -fx-background-color: linear-gradient(to right, #d4af37, #ffdb58); -fx-text-fill: #1a0f3e; -fx-border-radius: 8; -fx-effect: dropshadow(gaussian, #d4af37, 10, 0.6, 0, 5); -fx-cursor: hand; -fx-pref-width: 250;"/>
+
+                    <Button fx:id="exitBtn" text="  ❌ ESCI DAL GIOCO  " onAction="#onExitButtonClicked"
+                            style="-fx-padding: 14 40 14 40; -fx-font-size: 13px; -fx-font-weight: bold; -fx-background-color: #3a2a1a; -fx-text-fill: #d4af37; -fx-border-color: #8b7355; -fx-border-width: 2; -fx-border-radius: 8; -fx-cursor: hand; -fx-pref-width: 250;"/>
+                </VBox>
+
+                <!-- Funzionalità Future -->
+                <VBox style="-fx-padding: 15; -fx-alignment: center; -fx-background-color: #1a0f3e; -fx-border-color: #8b7355; -fx-border-width: 1; -fx-border-radius: 8; -fx-border-style: dashed;" spacing="15">
+
+                    <Label text="🔒 FUNZIONALITÀ PROSSIME VERSIONI"
+                           style="-fx-font-size: 12px; -fx-font-weight: bold; -fx-text-fill: #d4af37; -fx-text-alignment: center;"/>
+
+                    <HBox style="-fx-alignment: center;" spacing="10">
+                        <Button fx:id="equipBtn" text="⚙ Equipaggiamento" onAction="#onEquipButtonClicked"
+                                style="-fx-padding: 12 20 12 20; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #3a2a1a; -fx-text-fill: #c0a080; -fx-border-color: #8b7355; -fx-border-width: 1; -fx-border-radius: 5; -fx-cursor: hand; -fx-pref-width: 140;"/>
+
+                        <Button fx:id="shopBtn" text="💰 Negozio" onAction="#onShopButtonClicked"
+                                style="-fx-padding: 12 20 12 20; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #3a2a1a; -fx-text-fill: #c0a080; -fx-border-color: #8b7355; -fx-border-width: 1; -fx-border-radius: 5; -fx-cursor: hand; -fx-pref-width: 140;"/>
+                    </HBox>
+
+                    <HBox style="-fx-alignment: center;" spacing="10">
+                        <Button fx:id="abilityBtn" text="✨ Abilità" onAction="#onAbilityButtonClicked"
+                                style="-fx-padding: 12 20 12 20; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #3a2a1a; -fx-text-fill: #c0a080; -fx-border-color: #8b7355; -fx-border-width: 1; -fx-border-radius: 5; -fx-cursor: hand; -fx-pref-width: 140;"/>
+
+                        <Button fx:id="mapBtn" text="🗺 Mappa" onAction="#onMapButtonClicked"
+                                style="-fx-padding: 12 20 12 20; -fx-font-size: 12px; -fx-font-weight: bold; -fx-background-color: #3a2a1a; -fx-text-fill: #c0a080; -fx-border-color: #8b7355; -fx-border-width: 1; -fx-border-radius: 5; -fx-cursor: hand; -fx-pref-width: 140;"/>
+                    </HBox>
+                </VBox>
+            </VBox>
+        </HBox>
+    </ScrollPane>
+</VBox>
