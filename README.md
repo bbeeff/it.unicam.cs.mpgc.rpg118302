@@ -68,4 +68,4 @@ Per una descrizione più dettagliata su:
 - Implementazione dei principi SOLID
 - Persistenza dati e estendibilità futura
 
-Consultare la [Wiki del Repository]
+Consultare la [Wiki del Repository] [https://github.com/bbeeff/it.unicam.cs.mpgc.rpg118302.wiki.git]
