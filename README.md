@@ -15,7 +15,7 @@ Il giocatore crea un personaggio e affronta battaglie in un ambiente dark fantas
 ### Istruzioni
 
 ```bash
-git clone <url-del-repository>
+git clone <https://github.com/bbeeff/it.unicam.cs.mpgc.rpg118302.git>
 cd it.unicam.cs.mpgc.rpg118302
 ```
 
